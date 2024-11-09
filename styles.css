@@ -1,0 +1,171 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(fondo-desktop.png);
+    background-size: cover;
+}
+
+.contenedor-modal, .contenedor-formulario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.modal{
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    height: 500px;
+    border-radius: 5px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.modal span{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 6px 11px;
+    background-color: #6300a9;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.modal img{
+    width: 320px;
+    height: 400px;
+    margin-bottom: 10px;
+}
+
+.modal a{
+    margin-top: 20px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 6px;
+    background-color: #6300a9;
+    padding: 7px;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.contenedor-formulario .form1,
+.contenedor-formulario .form2 {
+    width: 320px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    padding: 20px;
+    background-color: #6300a9;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contenedor-formulario .form2{
+    justify-content: start;
+}
+
+.contenedor-formulario h2{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.contenedor-formulario h4{
+    font-weight: 400;
+    margin-bottom: 40px;
+    letter-spacing: 0.4px;
+}
+
+.contenedor-formulario label{
+    font-size: 14px;
+}
+
+.contenedor-formulario input{
+    padding: 9px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+}
+
+.contenedor-formulario input:focus{
+    outline: none;
+}
+
+.contenedor-boton{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-formulario button{
+    color: #fff;
+    background-color: #6300a9;
+    padding: 8px 20px;
+    border: 1px solid #fff;
+    border-radius: 11px;
+}
+
+.contenedor-formulario form span{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.contenedor-circulo{
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 350px;
+    height: 500px;
+    border-radius: 5px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.circulo{
+    background-color: green;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circulo .check{
+    color: white;
+    font-size: 50px;
+}
+
+.contenedor-circulo a{
+    width: 90%;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 7px;
+    background-color: green;
+    color: #fff;
+}
+
+@media (max-width: 576px) { 
+    body{
+        background-image: url(fondo-mobile.png);
+    }
+ }
